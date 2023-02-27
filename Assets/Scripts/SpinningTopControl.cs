@@ -14,6 +14,7 @@ public class SpinningTopControl : MonoBehaviour
     float movH, movZ;
     Vector3 moveInput;
     [SerializeField] float speedMov;
+    [SerializeField] string controlH, controlV;
     
     void Start()
     {
@@ -23,8 +24,8 @@ public class SpinningTopControl : MonoBehaviour
 
     private void Update() {
         
-        movH = Input.GetAxisRaw("Horizontal");
-        movZ = Input.GetAxisRaw("Vertical");
+        movH = Input.GetAxisRaw(controlH);
+        movZ = Input.GetAxisRaw(controlV);
     }
 
     void FixedUpdate()

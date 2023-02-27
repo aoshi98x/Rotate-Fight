@@ -361,6 +361,8 @@ MonoBehaviour:
   time: 60
   multiplier: 50
   speedMov: 2.5
+  controlH: Horizontal
+  controlV: Vertical
 --- !u!1 &2129221908
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +749,8 @@ MonoBehaviour:
   time: 60
   multiplier: 50
   speedMov: 1.5
+  controlH: Horizontal2
+  controlV: Vertical2
 --- !u!64 &4183683685224611097
 MeshCollider:
   m_ObjectHideFlags: 0
