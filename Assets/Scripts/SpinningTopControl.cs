@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class SpinningTopControl : MonoBehaviour
 {
-    [Header ("Spining Rotation")]
-    Rigidbody spiningRb;
-    [SerializeField] Vector3 angleVelocity;
-    [SerializeField] float time;
-    [SerializeField] int multiplier;
-    [Space]
+    
+    
     [Header ("Spining Movement")]
     float movH, movZ;
     Vector3 moveInput;
     [SerializeField] float speedMov;
     [SerializeField] string controlH, controlV;
+    Animator spiningAnim;
+    [Space]
+    [Header ("Spining Rotation")]
+    Rigidbody spiningRb;
+    [SerializeField] Vector3 angleVelocity;
+    [SerializeField] float time;
+    [SerializeField] int multiplier;
     
     void Start()
     {
         spiningRb = GetComponent<Rigidbody>();
+        spiningAnim = GetComponent<Animator>();
     
     }
 
@@ -31,7 +35,7 @@ public class SpinningTopControl : MonoBehaviour
     void FixedUpdate()
     {
         time = time - Time.fixedDeltaTime;
-        ControlMovement();
+        
         AttackMode();
 
         if(time <= 10.0f)
@@ -39,9 +43,7 @@ public class SpinningTopControl : MonoBehaviour
             StoppedMode();
         }
         
-
-        
-        
+        ControlMovement();         
     }
 
     void AttackMode()
@@ -69,5 +71,22 @@ public class SpinningTopControl : MonoBehaviour
     {
         moveInput = new Vector3 (movH, moveInput.y, movZ);
         spiningRb.MovePosition(spiningRb.position + moveInput.normalized*speedMov*Time.fixedDeltaTime);
+
+        if(movH <= -0.05f)
+        {
+            
+        }
+        else if (movZ <= -0.05f)
+        {
+            
+        }
+        if(movH >= 0.05f)
+        {
+            
+        }
+        else if(movZ >= 0.05f)
+        {
+            
+        }
     }
 }

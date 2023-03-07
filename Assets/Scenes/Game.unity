@@ -378,12 +378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e415fb5db822f4892d07048ef795b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleVelocity: {x: 0, y: 720, z: 0}
-  time: 60
-  multiplier: 50
   speedMov: 2.5
   controlH: Horizontal
   controlV: Vertical
+  angleVelocity: {x: 0, y: 720, z: 0}
+  time: 60
+  multiplier: 80
 --- !u!1 &1833008881
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,14 +607,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149291754448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22614221, y: 1.64, z: -0.875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22614217, y: 1.64, z: -0.875}
   m_LocalScale: {x: 1, y: 1, z: 0.36437845}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1833008882}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543450653617860515
 Transform:
@@ -629,7 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919132149144679705
 GameObject:
@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 1685413408}
   - component: {fileID: 1685413407}
   - component: {fileID: 1685413412}
+  - component: {fileID: 3469287837345674960}
   m_Layer: 0
   m_Name: Trompo 1
   m_TagString: Untagged
@@ -805,6 +806,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149291754448}
   m_Mesh: {fileID: -5495902117074765545, guid: d824a117a87337442b982d13e5f83a2b, type: 3}
+--- !u!95 &3469287837345674960
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149291754448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b929272934d5b9d44943df32183d26ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!33 &3469287837601865734
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -877,12 +898,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e415fb5db822f4892d07048ef795b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleVelocity: {x: 0, y: 720, z: 0}
-  time: 60
-  multiplier: 50
   speedMov: 1.5
   controlH: Horizontal2
   controlV: Vertical2
+  angleVelocity: {x: 0, y: 720, z: 0}
+  time: 60
+  multiplier: 80
 --- !u!64 &4183683685224611097
 MeshCollider:
   m_ObjectHideFlags: 0
