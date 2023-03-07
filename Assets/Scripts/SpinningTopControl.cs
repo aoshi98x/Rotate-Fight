@@ -11,7 +11,7 @@ public class SpinningTopControl : MonoBehaviour
     Vector3 moveInput;
     [SerializeField] float speedMov;
     [SerializeField] string controlH, controlV;
-    Animator spiningAnim;
+    Transform spiningT;
     [Space]
     [Header ("Spining Rotation")]
     Rigidbody spiningRb;
@@ -22,7 +22,7 @@ public class SpinningTopControl : MonoBehaviour
     void Start()
     {
         spiningRb = GetComponent<Rigidbody>();
-        spiningAnim = GetComponent<Animator>();
+        spiningT = GetComponent<Transform>();
     
     }
 
@@ -71,22 +71,5 @@ public class SpinningTopControl : MonoBehaviour
     {
         moveInput = new Vector3 (movH, moveInput.y, movZ);
         spiningRb.MovePosition(spiningRb.position + moveInput.normalized*speedMov*Time.fixedDeltaTime);
-
-        if(movH <= -0.05f)
-        {
-            
-        }
-        else if (movZ <= -0.05f)
-        {
-            
-        }
-        if(movH >= 0.05f)
-        {
-            
-        }
-        else if(movZ >= 0.05f)
-        {
-            
-        }
     }
 }
