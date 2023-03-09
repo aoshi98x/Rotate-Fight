@@ -11,19 +11,27 @@ public class SpinningTopControl : MonoBehaviour
     Vector3 moveInput;
     [SerializeField] float speedMov;
     [SerializeField] string controlH, controlV;
-    Transform spiningT;
+   
     [Space]
     [Header ("Spining Rotation")]
     Rigidbody spiningRb;
     [SerializeField] Vector3 angleVelocity;
     [SerializeField] float time;
     [SerializeField] int multiplier;
+    [SerializeField] Transform spiningTrans;
+    [SerializeField]GameObject baseSp;
+
+    [Space]
+    [Header("Attack-Defense")]
+    [SerializeField] bool isPunch;
+    [SerializeField] bool attackOn;
+    [SerializeField] bool timeOut;
+
     
     void Start()
     {
         spiningRb = GetComponent<Rigidbody>();
-        spiningT = GetComponent<Transform>();
-    
+
     }
 
     private void Update() {
@@ -35,15 +43,26 @@ public class SpinningTopControl : MonoBehaviour
     void FixedUpdate()
     {
         time = time - Time.fixedDeltaTime;
-        
-        AttackMode();
 
-        if(time <= 10.0f)
+        AttackMode();
+        if (time <= 1.5f)
+        {
+            timeOut = true;
+        }
+        else
+        {
+            timeOut = false;
+        }
+
+        if (time <= 10.0f)
         {
             StoppedMode();
         }
-        
-        ControlMovement();         
+        if(!timeOut)
+        {
+            ControlMovement();  
+        }
+
     }
 
     void AttackMode()
@@ -56,9 +75,11 @@ public class SpinningTopControl : MonoBehaviour
 
         angleVelocity = new Vector3(0,angleVelocity.y - Time.fixedDeltaTime*multiplier, 0);
         
-        if(time <= 5.0f)
+        if(time <= 3.5f)
         {
             spiningRb.constraints = RigidbodyConstraints.None;
+            baseSp.SetActive(false);
+            
         }
         if (time <= 0.5f)
         {
@@ -71,5 +92,20 @@ public class SpinningTopControl : MonoBehaviour
     {
         moveInput = new Vector3 (movH, moveInput.y, movZ);
         spiningRb.MovePosition(spiningRb.position + moveInput.normalized*speedMov*Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Spining"))
+        {
+            isPunch = true;
+        }
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Spining"))
+        {
+            isPunch = false;
+        }
     }
 }
