@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpinningTopControl : MonoBehaviour
 {
@@ -10,34 +11,35 @@ public class SpinningTopControl : MonoBehaviour
     float movH, movZ;
     Vector3 moveInput;
     [SerializeField] float speedMov;
-    [SerializeField] string controlH, controlV;
+    public string controlH, controlV, sliderName;
    
     [Space]
     [Header ("Spining Rotation")]
     Rigidbody spiningRb;
     [SerializeField] Vector3 angleVelocity;
-    [SerializeField] float time;
+    public float time;
     [SerializeField] int multiplier;
-    [SerializeField] Transform spiningTrans;
-    [SerializeField]GameObject baseSp;
+    [SerializeField] GameObject baseSp;
+    [SerializeField] Slider lifeTime;
 
     [Space]
     [Header("Attack-Defense")]
     [SerializeField] bool isPunch;
     [SerializeField] bool attackOn;
     [SerializeField] bool timeOut;
-
-    
+   
+   
     void Start()
     {
         spiningRb = GetComponent<Rigidbody>();
-
+        lifeTime = GameObject.Find(sliderName).GetComponent<Slider>();
     }
 
     private void Update() {
         
         movH = Input.GetAxisRaw(controlH);
         movZ = Input.GetAxisRaw(controlV);
+        lifeTime.value = time;
     }
 
     void FixedUpdate()
@@ -100,6 +102,13 @@ public class SpinningTopControl : MonoBehaviour
         {
             isPunch = true;
         }
+        if(other.gameObject.CompareTag("outside"))
+        {
+            Debug.Log ("perdiste");
+            Time.timeScale=0;
+            GameManager.Instance.PauseMenuOn();
+            
+        }
     }
     private void OnCollisionExit(Collision other)
     {
@@ -108,4 +117,15 @@ public class SpinningTopControl : MonoBehaviour
             isPunch = false;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("floor"))
+        {
+            Debug.Log ("perdiste");
+            Time.timeScale=0;
+            GameManager.Instance.PauseMenuOn();
+            
+        }
+    }
+
 }

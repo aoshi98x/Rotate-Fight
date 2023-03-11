@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f099f594180ae40b1d77ebac39eaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScene: 
+  nameScene: Battle
+  selectedPl: {fileID: 11400000, guid: c0a66e087995f614fbb9c6d757e5a305, type: 2}
+  SpiningTop:
+  - {fileID: 6814260417182498633, guid: 9a7f083f1a1b8f84d9a79091a297b992, type: 3}
+  - {fileID: 4451390628246157316, guid: f07110c5dc9939c41a283d91ce5e13b1, type: 3}
+  spawnPt:
+  - {fileID: 0}
+  - {fileID: 0}
