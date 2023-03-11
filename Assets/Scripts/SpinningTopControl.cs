@@ -27,6 +27,7 @@ public class SpinningTopControl : MonoBehaviour
     [SerializeField] bool isPunch;
     [SerializeField] bool attackOn;
     [SerializeField] bool timeOut;
+    [SerializeField] AudioClip colision;
    
    
     void Start()
@@ -40,6 +41,10 @@ public class SpinningTopControl : MonoBehaviour
         movH = Input.GetAxisRaw(controlH);
         movZ = Input.GetAxisRaw(controlV);
         lifeTime.value = time;
+        if(isPunch)
+        {
+            AudioManager.Instance.PlaySFX(colision);
+        }
     }
 
     void FixedUpdate()

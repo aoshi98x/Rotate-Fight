@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2043653052}
   m_Layer: 0
   m_Name: Trompo 1
-  m_TagString: Untagged
+  m_TagString: Spining
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   isPunch: 0
   attackOn: 0
   timeOut: 0
+  colision: {fileID: 8300000, guid: 0efd35807d785b542902381187db1f92, type: 3}
 --- !u!54 &3671473362416512401
 Rigidbody:
   m_ObjectHideFlags: 0
