@@ -45,6 +45,11 @@ public class SpinningTopControl : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(colision);
         }
+        if(time <= 0 )
+        {
+            Time.timeScale=0;
+            GameManager.Instance.PauseMenuOn();
+        }
     }
 
     void FixedUpdate()
